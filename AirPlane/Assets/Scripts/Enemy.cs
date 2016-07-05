@@ -31,20 +31,23 @@ public class Enemy : MonoBehaviour {
 
 	void OnTriggerEnter (Collider other) {
 		Debug.Log("Enemy trigger");
-		if (other.tag.CompareTo("PlayerRocket") == 0) {
-			Rocket rocket = other.GetComponent<Rocket>();
+		if (other.tag.CompareTo ("PlayerRocket") == 0) {
+			Rocket rocket = other.GetComponent<Rocket> ();
 			if (rocket != null) {
 				m_life -= rocket.m_power;
 				if (m_life <= 0) {
-					Destroy(this.gameObject);
+					Destroy (this.gameObject);
 				}
 			}
-			Debug.Log("Enemy trigger rocket");
-		}
-		else if (other.tag.CompareTo("Player") == 0) {
+			Debug.Log ("Enemy trigger rocket");
+		} else if (other.tag.CompareTo ("Player") == 0) {
 			m_life = 0;
-			Destroy(this.gameObject);
-			Debug.Log("Enemy trigger player");
+			Destroy (this.gameObject);
+			Debug.Log ("Enemy trigger player");
+		} else if (other.tag.CompareTo("bound") == 0) {
+			m_life = 0;
+			Destroy (this.gameObject);
+			Debug.Log ("Enemy trigger bound");
 		}
 	}
 }

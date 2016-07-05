@@ -52,6 +52,7 @@ public class Player : MonoBehaviour {
 	void OnTriggerEnter (Collider other) {
 		if (other.tag.CompareTo("PlayerRocket") != 0) {
 			m_life -= 1;
+			Debug.LogError("player trigger:"+m_life);
 			if (m_life <= 0)
 				Destroy(this.gameObject);
 		}
