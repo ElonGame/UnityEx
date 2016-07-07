@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour {
 		UpdateMove();
 	}
 
-	protected void UpdateMove () {
+	protected virtual void UpdateMove () {
 		// 左右移动
 		float rx = Mathf.Sin(Time.time) * Time.deltaTime;
 		// 前进
