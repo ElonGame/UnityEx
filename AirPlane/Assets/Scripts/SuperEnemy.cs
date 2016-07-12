@@ -8,6 +8,8 @@ public class SuperEnemy : Enemy {
 	public float m_fireSpeed = 2;
 	protected float m_fireTimer = 2;
 	protected Transform m_player;
+	// 声音
+	public AudioClip m_shootClip;
 
 	void Awake () {
 		GameObject obj = GameObject.FindGameObjectWithTag("Player");
@@ -24,6 +26,7 @@ public class SuperEnemy : Enemy {
 			if (m_player != null) {
 				Vector3 relativePos = m_transform.position - m_player.position;
 				Instantiate(m_rocket, m_transform.position, Quaternion.LookRotation(relativePos));
+				m_audio.PlayOneShot(m_shootClip);
 			}
 		}
 

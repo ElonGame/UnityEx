@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
 	// 声音
 	public AudioClip m_shootClip;
 	// 声音源
-	public AudioSource m_audio;
+	protected AudioSource m_audio;
 	// 爆炸特效
 	public Transform m_explosionFX;
 
