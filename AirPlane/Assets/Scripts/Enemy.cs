@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour {
 	public Transform m_explosionFX;
 	protected Transform m_transform;
 
+	public int m_point = 10;
+
 	// Use this for initialization
 	void Start () {
 		m_transform = this.transform;
@@ -40,6 +42,7 @@ public class Enemy : MonoBehaviour {
 			if (rocket != null) {
 				m_life -= rocket.m_power;
 				if (m_life <= 0) {
+					GameManager.Instance.AddScore(m_point);
 					// 爆炸特效
 					Instantiate(m_explosionFX, m_transform.position, Quaternion.identity);
 					Destroy (this.gameObject);
